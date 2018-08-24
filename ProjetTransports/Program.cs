@@ -40,12 +40,14 @@ namespace ProjetTransports
             // Convertit le flux json en collection d'objets C# LineDetails
             List<LineDetails> detailLignes = JsonConvert.DeserializeObject<List<LineDetails>>(responseFromServer2);
             
-            Console.WriteLine("Liste des transports de l'aglomération autour de la CCI :");
+            Console.WriteLine("Liste des transports de l'aglomération autour de la CCI :" + "\n");
 
             //affichage du dictionnaire
             foreach (KeyValuePair<string, List<string>> kvp in dicoStation)
             {
-                Console.WriteLine("Arret = " + kvp.Key);
+                Console.WriteLine("*****************************************************************");
+                Console.WriteLine("  Arret = " + kvp.Key);
+                Console.WriteLine("*****************************************************************\n");
                 foreach (string line in kvp.Value)
                 {
                     //int delimiter = line.IndexOf(":");
