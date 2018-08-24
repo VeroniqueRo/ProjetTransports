@@ -52,7 +52,7 @@ namespace ProjetTransports
                     //Console.WriteLine("      Ligne = " + line.Substring(delimiter + 1));
                     foreach (LineDetails linedetail in detailLignes)
                     {
-                        if (line == linedetail.id)
+                        if (linedetail.id.Contains(line))
                         {
                             Console.WriteLine("      Ligne  = " + linedetail.shortName);
                             Console.WriteLine("      Nom  = " + linedetail.longName);
