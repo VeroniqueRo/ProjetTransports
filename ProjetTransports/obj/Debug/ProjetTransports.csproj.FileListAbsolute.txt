@@ -14,3 +14,5 @@ C:\Users\veronique.rouault\source\repos\ProjetTransports\ProjetTransports\obj\De
 C:\Users\veronique.rouault\source\repos\ProjetTransports\ProjetTransports\obj\Debug\ProjetTransports.exe
 C:\Users\veronique.rouault\source\repos\ProjetTransports\ProjetTransports\obj\Debug\ProjetTransports.pdb
 C:\Users\veronique.rouault\source\repos\ProjetTransports\ProjetTransports\obj\Debug\ProjetTransports.csprojAssemblyReference.cache
+C:\Users\veronique.rouault\source\repos\ProjetTransports\ProjetTransports\bin\Debug\TransportsLibrary.dll
+C:\Users\veronique.rouault\source\repos\ProjetTransports\ProjetTransports\bin\Debug\TransportsLibrary.pdb

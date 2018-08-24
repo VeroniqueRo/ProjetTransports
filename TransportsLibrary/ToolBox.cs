@@ -4,10 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProjetTransports
+namespace TransportsLibrary
 {
-    class ToolsBox
+    public class ToolBox
     {
+        
+        // Méthode retirant les doublons dans le dictionaire
         public static Dictionary<string, List<string>> dicoCreateAndClean(List<BusStationObject> busStations)
         {
 
@@ -15,7 +17,6 @@ namespace ProjetTransports
 
             foreach (BusStationObject station in busStations)
             {
-
                 if (!dicoStation.ContainsKey(station.name))
                 {
                     dicoStation.Add(station.name, station.lines);
@@ -30,7 +31,6 @@ namespace ProjetTransports
                         {
                             dicoStation[station.name].Add(line);
                         }
-
                     }
                 }
             }

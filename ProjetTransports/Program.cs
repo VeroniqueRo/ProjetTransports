@@ -7,6 +7,7 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
+using TransportsLibrary;
 
 namespace ProjetTransports
 {
@@ -16,80 +17,37 @@ namespace ProjetTransports
         static void Main(string[] args)
         {
 
-            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls;
-
-            WebRequest request = null;
-            WebResponse response = null;
-            Stream dataStream = null;
-            StreamReader reader = null;
+            // Définition des éléments de position de la CCI
             string longitude = "5.724524";
             string latitude = "45.188529";
-            int distance = 400;
+            int distance = 400; // Périmètre de recherche autour de la CCI
 
-            try
-            {
-
-                // Crée une requête utilisant la classe WebRequest pour afficher toutes les lignes de transport à proximité d'un lieu   
-                request = WebRequest.Create("http://data.metromobilite.fr/api/linesNear/json?x=" + longitude + "&y=" + latitude + "&dist=" + distance + "&details=true");
-               
-                // If required by the server, set the credentials.  
-                request.Credentials = CredentialCache.DefaultCredentials;
-                // Get the response.  
-                response = request.GetResponse();
-                // Display the status.  
-                Console.WriteLine(((HttpWebResponse)response).StatusDescription);
-                // Get the stream containing content returned by the server.  
-                dataStream = response.GetResponseStream();
-                // Open the stream using a StreamReader for easy access.  
-                reader = new StreamReader(dataStream);
-                // Lit le contenu du flux.  
-                string responseFromServer = reader.ReadToEnd();
-
-                // Affiche le flux json.  
-                //Console.WriteLine(responseFromServer);
-
-                // Convertit le flux json en collection d'objets C# BusStationObject
-                List<BusStationObject> busStations = JsonConvert.DeserializeObject<List<BusStationObject>>(responseFromServer);
-
-                              
-
-                // Crée un dictionnaire
-                Dictionary<string, List<string>> dicoStation = ToolsBox.dicoCreateAndClean(busStations);
-
-
-                //affichage du dictionnaire
-                foreach (KeyValuePair<string, List<string>> kvp in dicoStation)
-                {
-                    Console.WriteLine("Arret = " + kvp.Key);
-                    foreach (string line in kvp.Value)
-                    {
-                        int delimiter = line.IndexOf(":");
-                        Console.WriteLine("      Ligne = " + line.Substring(delimiter + 1));
-                    }
-
-                    //    //Console.WriteLine("Nom de la station : " + station.name + "\n");
-                    //    ////Console.WriteLine("GPS Longitude : " + station.lon + " et Latitude : " + station.lat);
-
-                    //    //foreach (string line in station.lines)
-                    //    //{
-                    //    //    int delimiter = line.IndexOf(":");
-                    //    //    Console.WriteLine("Nom de la ligne : " + line.Substring(delimiter + 1));
-                    //    //}
-
-                }
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.ToString());
-            }
-
-            finally
-            {
-                // Clean up the streams and the response. 
-                reader.Close();
-                response.Close();
-            }
+            // Instance de connexion avec l'API des lignes à proximité
+            Connexion connect = new Connexion();
+            String responseFromServer = connect.ConnexionApi("http://data.metromobilite.fr/api/linesNear/json?x=" + longitude + "&y=" + latitude + "&dist=" + distance + "&details=true");
             
+            // Convertit le flux json en collection d'objets C# BusStationObject
+            List<BusStationObject> busStations = JsonConvert.DeserializeObject<List<BusStationObject>>(responseFromServer);
+
+            // Crée un dictionnaire
+            Dictionary<string, List<string>> dicoStation = ToolBox.dicoCreateAndClean(busStations);
+
+
+            Console.WriteLine("Liste des transports de l'aglomération autour de la CCI :");
+
+            //affichage du dictionnaire
+            foreach (KeyValuePair<string, List<string>> kvp in dicoStation)
+            {
+                Console.WriteLine("Arret = " + kvp.Key);
+                foreach (string line in kvp.Value)
+                {
+                    int delimiter = line.IndexOf(":");
+                    Console.WriteLine("      Ligne = " + line.Substring(delimiter + 1));
+                }
+
+                   
+            }
+                    
         }
 
      }
