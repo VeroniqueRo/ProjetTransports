@@ -51,37 +51,11 @@ namespace ProjetTransports
                 // Convertit le flux json en collection d'objets C# BusStationObject
                 List<BusStationObject> busStations = JsonConvert.DeserializeObject<List<BusStationObject>>(responseFromServer);
 
-
-                //ProjetTransports.Factory.dicoCreateAndClean(List<BusStationObject> busStations);
+                              
 
                 // Crée un dictionnaire
-                Dictionary<string, List<string>> dicoStation = new Dictionary<string, List<string>>();
+                Dictionary<string, List<string>> dicoStation = ToolsBox.dicoCreateAndClean(busStations);
 
-                // Parcoure la collection d'objets pour créer un dictionary
-                foreach (BusStationObject station in busStations)
-                {
-                    // Si la clé de l'arrêt n'existe pas
-                    if (!dicoStation.ContainsKey(station.name))
-                    {
-                        // Ajoute la clé et la liste associée dans le dictionaire
-                        dicoStation.Add(station.name, station.lines);
-                    }
-                    else
-                    {
-                        //Console.WriteLine("Nb de lignes = " + station.lines.Count);
-
-                        foreach (string line in station.lines)
-                        {
-                            // Si les lignes de bus correspondantes à la clé Arrêt n'existent pas
-                            if (!dicoStation[station.name].Contains(line))
-                            {
-                                // Ajoute les lignes de bus dans le doictionnaire
-                                dicoStation[station.name].Add(line);
-                            }
-
-                        }
-                    }
-                }
 
                 //affichage du dictionnaire
                 foreach (KeyValuePair<string, List<string>> kvp in dicoStation)
@@ -118,9 +92,6 @@ namespace ProjetTransports
             
         }
 
-        
-
-    }
-
+     }
 
 }

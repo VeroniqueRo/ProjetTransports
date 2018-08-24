@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace ProjetTransports
 {
-    class Factory
+    class ToolsBox
     {
-        public Dictionary<string, List<string>> dicoCreateAndClean(List<BusStationObject> busStations)
+        public static Dictionary<string, List<string>> dicoCreateAndClean(List<BusStationObject> busStations)
         {
 
             Dictionary<string, List<string>> dicoStation = new Dictionary<string, List<string>>();
@@ -28,8 +28,7 @@ namespace ProjetTransports
                     {
                         if (!dicoStation[station.name].Contains(line))
                         {
-                            int delimiter = line.IndexOf(":");
-                            dicoStation[station.name].Add(line.Substring(delimiter + 1));
+                            dicoStation[station.name].Add(line);
                         }
 
                     }
