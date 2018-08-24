@@ -22,17 +22,24 @@ namespace ProjetTransports
             string latitude = "45.188529";
             int distance = 400; // Périmètre de recherche autour de la CCI
 
-            // Instance de connexion avec l'API des lignes à proximité
-            Connexion connect = new Connexion();
-            String responseFromServer = connect.ConnexionApi("http://data.metromobilite.fr/api/linesNear/json?x=" + longitude + "&y=" + latitude + "&dist=" + distance + "&details=true");
-            
-            // Convertit le flux json en collection d'objets C# BusStationObject
-            List<BusStationObject> busStations = JsonConvert.DeserializeObject<List<BusStationObject>>(responseFromServer);
 
-            // Crée un dictionnaire
+
+            // Instance de connexion avec l'API des LIGNES DE TRANSPORT A PROXIMITE D'UN POINT
+            Connexion connectStations = new Connexion();
+            String responseFromServer1 = connectStations.ConnexionApi("http://data.metromobilite.fr/api/linesNear/json?x=" + longitude + "&y=" + latitude + "&dist=" + distance + "&details=true");
+            // Convertit le flux json en collection d'objets C# BusStationObject
+            List<BusStationObject> busStations = JsonConvert.DeserializeObject<List<BusStationObject>>(responseFromServer1);
+            // Crée un dictionnaire et retire les doublons
             Dictionary<string, List<string>> dicoStation = ToolBox.dicoCreateAndClean(busStations);
 
 
+
+            // Instance de connexion avec l'API des LIGNES DE TRANSPORT
+            Connexion connectLignes = new Connexion();
+            String responseFromServer2 = connectLignes.ConnexionApi("http://data.metromobilite.fr/api/routers/default/index/routes");
+            // Convertit le flux json en collection d'objets C# LineDetails
+            List<LineDetails> detailLignes = JsonConvert.DeserializeObject<List<LineDetails>>(responseFromServer2);
+            
             Console.WriteLine("Liste des transports de l'aglomération autour de la CCI :");
 
             //affichage du dictionnaire
@@ -41,10 +48,19 @@ namespace ProjetTransports
                 Console.WriteLine("Arret = " + kvp.Key);
                 foreach (string line in kvp.Value)
                 {
-                    int delimiter = line.IndexOf(":");
-                    Console.WriteLine("      Ligne = " + line.Substring(delimiter + 1));
-                }
+                    //int delimiter = line.IndexOf(":");
+                    //Console.WriteLine("      Ligne = " + line.Substring(delimiter + 1));
+                    foreach (LineDetails linedetail in detailLignes)
+                    {
+                        if (line == linedetail.id)
+                        {
+                            Console.WriteLine("      Ligne  = " + linedetail.shortName);
+                            Console.WriteLine("      Nom  = " + linedetail.longName);
+                            Console.WriteLine("      Couleur  = " + linedetail.color +"\n");
+                        }
+                    }
 
+                }
                    
             }
                     
