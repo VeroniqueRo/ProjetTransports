@@ -1,6 +1,9 @@
-C:\Users\veronique.rouault\source\repos\ProjetTransports\TransportsLibrary\bin\Debug\TransportsLibrary.dll
-C:\Users\veronique.rouault\source\repos\ProjetTransports\TransportsLibrary\bin\Debug\TransportsLibrary.pdb
 C:\Users\veronique.rouault\source\repos\ProjetTransports\TransportsLibrary\obj\Debug\TransportsLibrary.csprojAssemblyReference.cache
 C:\Users\veronique.rouault\source\repos\ProjetTransports\TransportsLibrary\obj\Debug\TransportsLibrary.csproj.CoreCompileInputs.cache
+C:\Users\veronique.rouault\source\repos\ProjetTransports\TransportsLibrary\bin\Debug\TransportsLibrary.dll
+C:\Users\veronique.rouault\source\repos\ProjetTransports\TransportsLibrary\bin\Debug\TransportsLibrary.pdb
+C:\Users\veronique.rouault\source\repos\ProjetTransports\TransportsLibrary\bin\Debug\Newtonsoft.Json.dll
+C:\Users\veronique.rouault\source\repos\ProjetTransports\TransportsLibrary\bin\Debug\Newtonsoft.Json.xml
+C:\Users\veronique.rouault\source\repos\ProjetTransports\TransportsLibrary\obj\Debug\TransportsLibrary.csproj.CopyComplete
 C:\Users\veronique.rouault\source\repos\ProjetTransports\TransportsLibrary\obj\Debug\TransportsLibrary.dll
 C:\Users\veronique.rouault\source\repos\ProjetTransports\TransportsLibrary\obj\Debug\TransportsLibrary.pdb

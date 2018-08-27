@@ -8,10 +8,10 @@ using System.Threading.Tasks;
 
 namespace TransportsLibrary
 {
-    public class Connexion
+    public class Connexion : IConnexionApi
     {
         // Méthode pour se connecter à une API et retourner des données Json
-        public String ConnexionApi(string UrlApi)
+        public String ConnexionApi(string url)
         {
             // Pour éviter les erreurs de communication
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls;
@@ -25,8 +25,7 @@ namespace TransportsLibrary
             try
             {
                 // Crée une requête utilisant la classe WebRequest pour afficher toutes les lignes de transport à proximité d'un lieu   
-                request = WebRequest.Create(UrlApi);
-
+                request = WebRequest.Create(url);
                 // If required by the server, set the credentials.  
                 request.Credentials = CredentialCache.DefaultCredentials;
                 // Get the response.  

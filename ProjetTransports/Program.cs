@@ -18,28 +18,20 @@ namespace ProjetTransports
         {
 
             // Définition des éléments de position de la CCI
-            string longitude = "5.724524";
-            string latitude = "45.188529";
+            string longitude = "5.726744267129334";
+            string latitude = "45.18521853612248";
             int distance = 400; // Périmètre de recherche autour de la CCI
 
-
-
-            // Instance de connexion avec l'API des LIGNES DE TRANSPORT A PROXIMITE D'UN POINT
-            Connexion connectStations = new Connexion();
-            String responseFromServer1 = connectStations.ConnexionApi("http://data.metromobilite.fr/api/linesNear/json?x=" + longitude + "&y=" + latitude + "&dist=" + distance + "&details=true");
-            // Convertit le flux json en collection d'objets C# BusStationObject
-            List<BusStationObject> busStations = JsonConvert.DeserializeObject<List<BusStationObject>>(responseFromServer1);
-            // Crée un dictionnaire et retire les doublons
-            Dictionary<string, List<string>> dicoStation = ToolBox.dicoCreateAndClean(busStations);
-
-
+            // Appel de la méthode qui retire les doublons dans le dictionaire
+            DicoWithNoDouble liste = new DicoWithNoDouble(new Connexion());
+            Dictionary<string, List<string>> dicoStation = liste.dicoCreateAndClean(latitude, longitude, distance);
 
             // Instance de connexion avec l'API des LIGNES DE TRANSPORT
             Connexion connectLignes = new Connexion();
-            String responseFromServer2 = connectLignes.ConnexionApi("http://data.metromobilite.fr/api/routers/default/index/routes");
+            String urlLignes = "http://data.metromobilite.fr/api/routers/default/index/routes";
             // Convertit le flux json en collection d'objets C# LineDetails
-            List<LineDetails> detailLignes = JsonConvert.DeserializeObject<List<LineDetails>>(responseFromServer2);
-            
+            List<LineDetails> detailLignes = JsonConvert.DeserializeObject<List<LineDetails>>(connectLignes.ConnexionApi(urlLignes));
+
             Console.WriteLine("Liste des transports de l'aglomération autour de la CCI :" + "\n");
 
             //affichage du dictionnaire
@@ -68,6 +60,8 @@ namespace ProjetTransports
                     
         }
 
+
+        
      }
 
 }

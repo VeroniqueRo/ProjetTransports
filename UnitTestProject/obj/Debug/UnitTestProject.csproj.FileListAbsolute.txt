@@ -18,6 +18,8 @@ C:\Users\veronique.rouault\source\repos\ProjetTransports\UnitTestProject\bin\Deb
 C:\Users\veronique.rouault\source\repos\ProjetTransports\UnitTestProject\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
 C:\Users\veronique.rouault\source\repos\ProjetTransports\UnitTestProject\bin\Debug\Newtonsoft.Json.xml
 C:\Users\veronique.rouault\source\repos\ProjetTransports\UnitTestProject\obj\Debug\UnitTestProject.csprojAssemblyReference.cache
+C:\Users\veronique.rouault\source\repos\ProjetTransports\UnitTestProject\obj\Debug\UnitTestProject.Resource1.resources
+C:\Users\veronique.rouault\source\repos\ProjetTransports\UnitTestProject\obj\Debug\UnitTestProject.csproj.GenerateResource.cache
 C:\Users\veronique.rouault\source\repos\ProjetTransports\UnitTestProject\obj\Debug\UnitTestProject.csproj.CoreCompileInputs.cache
 C:\Users\veronique.rouault\source\repos\ProjetTransports\UnitTestProject\obj\Debug\UnitTestProject.csproj.CopyComplete
 C:\Users\veronique.rouault\source\repos\ProjetTransports\UnitTestProject\obj\Debug\UnitTestProject.dll
