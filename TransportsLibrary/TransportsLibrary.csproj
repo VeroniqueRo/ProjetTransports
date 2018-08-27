@@ -44,11 +44,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BusStationObject.cs" />
+    <Compile Include="DataLineDetails.cs" />
     <Compile Include="Connexion.cs" />
     <Compile Include="IConnexionApi.cs" />
-    <Compile Include="LineDetails.cs" />
+    <Compile Include="LineDetailsObject.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="DicoWithNoDouble.cs" />
+    <Compile Include="DataBusStation.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

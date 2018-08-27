@@ -18,20 +18,18 @@ namespace ProjetTransports
         {
 
             // Définition des éléments de position de la CCI
-            string longitude = "5.726744267129334";
-            string latitude = "45.18521853612248";
+            string longitude = "5.724524";
+            string latitude = "45.188529";
+            //string longitude = "5.726744267129334";
+            //string latitude = "45.18521853612248";
             int distance = 400; // Périmètre de recherche autour de la CCI
 
             // Appel de la méthode qui retire les doublons dans le dictionaire
-            DicoWithNoDouble liste = new DicoWithNoDouble(new Connexion());
+            DataBusStation liste = new DataBusStation(new Connexion());
             Dictionary<string, List<string>> dicoStation = liste.dicoCreateAndClean(latitude, longitude, distance);
 
-            // Instance de connexion avec l'API des LIGNES DE TRANSPORT
-            Connexion connectLignes = new Connexion();
-            String urlLignes = "http://data.metromobilite.fr/api/routers/default/index/routes";
-            // Convertit le flux json en collection d'objets C# LineDetails
-            List<LineDetails> detailLignes = JsonConvert.DeserializeObject<List<LineDetails>>(connectLignes.ConnexionApi(urlLignes));
-
+            DataLineDetails dataLineDetails = new DataLineDetails(new Connexion());
+            Console.WriteLine(dataLineDetails.GetLineDetailsObject("SEM:12").color);
             Console.WriteLine("Liste des transports de l'aglomération autour de la CCI :" + "\n");
 
             //affichage du dictionnaire
@@ -43,25 +41,25 @@ namespace ProjetTransports
                 foreach (string line in kvp.Value)
                 {
                     //int delimiter = line.IndexOf(":");
-                    //Console.WriteLine("      Ligne = " + line.Substring(delimiter + 1));
-                    foreach (LineDetails linedetail in detailLignes)
-                    {
-                        if (linedetail.id.Contains(line))
-                        {
-                            Console.WriteLine("      Ligne  = " + linedetail.shortName);
-                            Console.WriteLine("      Nom  = " + linedetail.longName);
-                            Console.WriteLine("      Couleur  = " + linedetail.color +"\n");
-                        }
-                    }
+                    Console.WriteLine("      Ligne = " + dataLineDetails.GetLineDetailsObject(line).shortName);
+                    Console.WriteLine("      Nom  = " + dataLineDetails.GetLineDetailsObject(line).longName);
+                    Console.WriteLine("      Couleur  = " + dataLineDetails.GetLineDetailsObject(line).color + "\n");
+
+                    //if (dataLineDetails.GetLineDetailsObject(line).id.Contains(line))
+                    //{
+                    //    Console.WriteLine("      Ligne  = " + dataLineDetails.GetLineDetailsObject(line).shortName);
+                    //    Console.WriteLine("      Nom  = " + dataLineDetails.GetLineDetailsObject(line).longName);
+                    //    Console.WriteLine("      Couleur  = " + dataLineDetails.GetLineDetailsObject(line).color + "\n");
+                    //}
 
                 }
-                   
+
             }
-                    
+
         }
 
 
-        
-     }
+
+    }
 
 }

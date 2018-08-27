@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace TransportsLibrary
 {
     //Constructeur concernant le détail des lignes
-    public class LineDetails
+    public class LineDetailsObject
     {
             public string id { get; set; }
             public string shortName { get; set; }

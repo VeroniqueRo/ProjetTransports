@@ -7,16 +7,16 @@ using System.Threading.Tasks;
 
 namespace TransportsLibrary
 {
-    public class DicoWithNoDouble
+    public class DataBusStation
     {
 
-        private IConnexionApi connectStations;
+        private IConnexionApi connect;
 
         // Méthode qui retourne une liste à partir du json
         public List<BusStationObject> convertJsonList(string latitude, string longitude, int distance)
         {
             String url = "http://data.metromobilite.fr/api/linesNear/json?x=" + longitude + "&y=" + latitude + "&dist=" + distance + "&details=true";
-            String responseFromServer = connectStations.ConnexionApi(url);
+            String responseFromServer = connect.ConnexionApi(url);
             List<BusStationObject> busStations = JsonConvert.DeserializeObject<List<BusStationObject>>(responseFromServer);
             return busStations;
         }
@@ -50,9 +50,9 @@ namespace TransportsLibrary
         }
 
         // constructeur
-        public DicoWithNoDouble(IConnexionApi connex)
+        public DataBusStation(IConnexionApi connex)
         {
-            connectStations = connex;
+            connect = connex;
         }
     }
 }

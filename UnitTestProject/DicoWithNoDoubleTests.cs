@@ -20,7 +20,7 @@ namespace TransportsLibrary.Tests
             string latitude = "45.18521853612248";
             int distance = 400; // Périmètre de recherche autour de la CCI
 
-            DicoWithNoDouble liste = new DicoWithNoDouble(new FakeConnexionApi());
+            DataBusStation liste = new DataBusStation(new FakeConnexionApi());
             Dictionary<string, List<string>> result = liste.dicoCreateAndClean(latitude, longitude, distance);
             Assert.AreEqual(result.Count, 1);
             Assert.IsTrue(result.ContainsKey("GRENOBLE, CASERNE DE BONNE"));
