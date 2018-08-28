@@ -45,7 +45,7 @@ namespace TransportsLibrary
                     }
                 }
 
-                dicoStation[station.name] = dicoStation[station.name].Distinct().ToList();
+                dicoStation[station.name] = dicoStation[station.name].Distinct().ToList(); // Méthode interne qui retire les doublons des lignes
             }
 
             return dicoStation;
