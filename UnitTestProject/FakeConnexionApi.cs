@@ -9,9 +9,11 @@ namespace TransportsLibrary
 {
     class FakeConnexionApi : IConnexionApi
     {
-        public string ConnexionApi(string url)
+        public String resultatJson { get; set; } // Propriété permettant de gérer les données de Ressource1
+
+        public String ConnexionApi(string url) // Méthode qui implémente celle de l'interface
         {
-            return Resource1.JsonProximityLines;
+            return resultatJson;
         }
     }
 }

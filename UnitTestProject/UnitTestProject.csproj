@@ -48,7 +48,8 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DicoWithNoDoubleTests.cs" />
+    <Compile Include="DataBusStationTests.cs" />
+    <Compile Include="DataLineDetailsTests.cs" />
     <Compile Include="FakeConnexionApi.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resource1.Designer.cs">

@@ -24,15 +24,17 @@ namespace ProjetTransports
             //string latitude = "45.18521853612248";
             int distance = 400; // Périmètre de recherche autour de la CCI
 
-            // Appel de la méthode qui retire les doublons dans le dictionaire
+            // Récupération des données des arrêts et appel de la méthode qui retire les doublons dans le dictionaire
             DataBusStation liste = new DataBusStation(new Connexion());
             Dictionary<string, List<string>> dicoStation = liste.dicoCreateAndClean(latitude, longitude, distance);
 
+            // Récupération des données des lignes
             DataLineDetails dataLineDetails = new DataLineDetails(new Connexion());
-            Console.WriteLine(dataLineDetails.GetLineDetailsObject("SEM:12").color);
-            Console.WriteLine("Liste des transports de l'aglomération autour de la CCI :" + "\n");
+            //Console.WriteLine(dataLineDetails.GetLineDetailsObject("SEM:12").color);// test d'affichage depuis l'API des lignes
 
             //affichage du dictionnaire
+            Console.WriteLine("Liste des transports de l'aglomération autour de la CCI :" + "\n");
+
             foreach (KeyValuePair<string, List<string>> kvp in dicoStation)
             {
                 Console.WriteLine("*****************************************************************");
@@ -40,7 +42,6 @@ namespace ProjetTransports
                 Console.WriteLine("*****************************************************************\n");
                 foreach (string line in kvp.Value)
                 {
-                    //int delimiter = line.IndexOf(":");
                     Console.WriteLine("      Ligne = " + dataLineDetails.GetLineDetailsObject(line).shortName);
                     Console.WriteLine("      Nom  = " + dataLineDetails.GetLineDetailsObject(line).longName);
                     Console.WriteLine("      Couleur  = " + dataLineDetails.GetLineDetailsObject(line).color + "\n");
