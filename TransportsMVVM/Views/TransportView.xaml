@@ -25,10 +25,10 @@
 
                             <TextBlock Text = "{Binding Path = TableTitle }"/>
 
-                            <TextBox Text = "{Binding Path = BusStation, Mode = OneWay}" 
+                            <TextBox Text = "{Binding Path = Key, Mode = OneWay}" 
                         Width = "200" Margin = "20 5 3 5" />
 
-                            <TextBox Text = "{Binding Path = Line, Mode = OneWay}" 
+                            <TextBox Text = "{Binding Path = Value, Mode = OneWay}" 
                         Width = "100" Margin = "20 5 3 5"/>
 
                         </StackPanel>
