@@ -45,14 +45,6 @@ namespace ProjetTransports
                     Console.WriteLine("      Ligne = " + dataLineDetails.GetLineDetailsObject(line).shortName);
                     Console.WriteLine("      Nom  = " + dataLineDetails.GetLineDetailsObject(line).longName);
                     Console.WriteLine("      Couleur  = " + dataLineDetails.GetLineDetailsObject(line).color + "\n");
-
-                    //if (dataLineDetails.GetLineDetailsObject(line).id.Contains(line))
-                    //{
-                    //    Console.WriteLine("      Ligne  = " + dataLineDetails.GetLineDetailsObject(line).shortName);
-                    //    Console.WriteLine("      Nom  = " + dataLineDetails.GetLineDetailsObject(line).longName);
-                    //    Console.WriteLine("      Couleur  = " + dataLineDetails.GetLineDetailsObject(line).color + "\n");
-                    //}
-
                 }
 
             }

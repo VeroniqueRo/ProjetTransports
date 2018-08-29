@@ -4,8 +4,6 @@ P:\Developpement\21-C#\ProjetTransports\ProjetTransports\bin\Debug\ProjetTranspo
 P:\Developpement\21-C#\ProjetTransports\ProjetTransports\obj\Debug\ProjetTransports.csproj.CoreCompileInputs.cache
 P:\Developpement\21-C#\ProjetTransports\ProjetTransports\obj\Debug\ProjetTransports.exe
 P:\Developpement\21-C#\ProjetTransports\ProjetTransports\obj\Debug\ProjetTransports.pdb
-C:\Users\veronique.rouault\source\repos\ProjetTransports\ProjetTransports\obj\Debug\ProjetTransports.csprojAssemblyReference.cache
-C:\Users\veronique.rouault\source\repos\ProjetTransports\ProjetTransports\obj\Debug\ProjetTransports.csproj.CoreCompileInputs.cache
 C:\Users\veronique.rouault\source\repos\ProjetTransports\ProjetTransports\bin\Debug\ProjetTransports.exe.config
 C:\Users\veronique.rouault\source\repos\ProjetTransports\ProjetTransports\bin\Debug\ProjetTransports.exe
 C:\Users\veronique.rouault\source\repos\ProjetTransports\ProjetTransports\bin\Debug\ProjetTransports.pdb
@@ -13,6 +11,8 @@ C:\Users\veronique.rouault\source\repos\ProjetTransports\ProjetTransports\bin\De
 C:\Users\veronique.rouault\source\repos\ProjetTransports\ProjetTransports\bin\Debug\TransportsLibrary.dll
 C:\Users\veronique.rouault\source\repos\ProjetTransports\ProjetTransports\bin\Debug\TransportsLibrary.pdb
 C:\Users\veronique.rouault\source\repos\ProjetTransports\ProjetTransports\bin\Debug\Newtonsoft.Json.xml
+C:\Users\veronique.rouault\source\repos\ProjetTransports\ProjetTransports\obj\Debug\ProjetTransports.csprojAssemblyReference.cache
+C:\Users\veronique.rouault\source\repos\ProjetTransports\ProjetTransports\obj\Debug\ProjetTransports.csproj.CoreCompileInputs.cache
 C:\Users\veronique.rouault\source\repos\ProjetTransports\ProjetTransports\obj\Debug\ProjetTransports.csproj.CopyComplete
 C:\Users\veronique.rouault\source\repos\ProjetTransports\ProjetTransports\obj\Debug\ProjetTransports.exe
 C:\Users\veronique.rouault\source\repos\ProjetTransports\ProjetTransports\obj\Debug\ProjetTransports.pdb
