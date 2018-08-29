@@ -14,7 +14,7 @@ namespace TransportsMVVM.Model
 
     public class Transport
     {
-        public String Titre { get; set; }
+        public String TableTitle { get; set; }
         public String BusStation { get; set; }
         public String Line { get; set; }
     }

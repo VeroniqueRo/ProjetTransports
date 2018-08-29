@@ -21,7 +21,7 @@ namespace TransportsMVVM.ViewModel
             set;
         }
 
-        public String Title
+        public String PageTitle
         {
             get;
             set;
@@ -30,10 +30,11 @@ namespace TransportsMVVM.ViewModel
         public void LoadTransports()
         {
 
-            Title = "Liste des arrêts de bus";
+            PageTitle = "TRANSPORTS GRENOBLOIS";
 
             ObservableCollection<Transport> transports = new ObservableCollection<Transport>();
 
+            transports.Add(new Transport { TableTitle = "LISTE DES ARRETS DE PROXIMITE" });
             transports.Add(new Transport { BusStation = "CASERNE DE BONNE", Line = "SEM:12" });
             transports.Add(new Transport { BusStation = "HOTEL DE VILLE", Line = "SEM:C1" });
             transports.Add(new Transport { BusStation = "VICTOR HUGO", Line = "SEM:16" });

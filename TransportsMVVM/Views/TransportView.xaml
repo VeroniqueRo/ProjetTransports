@@ -9,13 +9,22 @@
     <Grid>
         <StackPanel VerticalAlignment = "Center" HorizontalAlignment = "Center">
             
-            <TextBlock Text = "{Binding Path = Title}"
+            <TextBlock Text = "{Binding Path = PageTitle}"
                       HorizontalAlignment = "Center" Margin = "0 5 3 5" />
+            
             <ItemsControl ItemsSource = "{Binding Path = Transports}">
+                
+                    
+                
                 <ItemsControl.ItemTemplate>
+                    
                     <DataTemplate>
+                        
+                        
                         <StackPanel Orientation = "Horizontal">
-                            
+
+                            <TextBlock Text = "{Binding Path = TableTitle }"/>
+
                             <TextBox Text = "{Binding Path = BusStation, Mode = OneWay}" 
                         Width = "200" Margin = "20 5 3 5" />
 
