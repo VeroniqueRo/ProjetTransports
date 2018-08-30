@@ -59,7 +59,7 @@ namespace TransportsMVVM.ViewModel
             foreach (KeyValuePair<string, List<string>> kvp in dico)
             {
                 Transport transport = new Transport(kvp.Key, kvp.Value);
-                listToReturn.Add(transport);
+                listToReturn.Add(transport);  
             }
 
             return listToReturn;

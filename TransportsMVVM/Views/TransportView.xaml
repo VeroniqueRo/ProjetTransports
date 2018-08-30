@@ -11,30 +11,29 @@
             
             <TextBlock Text = "{Binding Path = PageTitle}"
                       HorizontalAlignment = "Center" Margin = "0 5 3 5" />
-            
+
             <ItemsControl ItemsSource = "{Binding Path = Transports}">
-                
-                    
-                
                 <ItemsControl.ItemTemplate>
-                    
                     <DataTemplate>
-                        
-                        
                         <StackPanel Orientation = "Horizontal">
 
-                            <TextBlock Text = "{Binding Path = TableTitle }"/>
+                            <TextBox Text = "{Binding Path = BusStop, Mode = OneWay}" Width = "200" Margin = "20 5 3 5" />
 
-                            <TextBox Text = "{Binding Path = Key, Mode = OneWay}" 
-                        Width = "200" Margin = "20 5 3 5" />
-
-                            <TextBox Text = "{Binding Path = Value, Mode = OneWay}" 
-                        Width = "100" Margin = "20 5 3 5"/>
+                            <!--<boucle sur la collection Value> -->
+                            <ItemsControl ItemsSource = "{Binding Path = BusLine}">
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation = "Horizontal">
+                                            <!--<le . récupère toute la collection> -->
+                                            <TextBox Text = "{Binding Path = ., Mode = OneWay}" Width = "200" Margin = "20 5 3 5" />
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
 
                         </StackPanel>
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
-
             </ItemsControl>
 
         </StackPanel>

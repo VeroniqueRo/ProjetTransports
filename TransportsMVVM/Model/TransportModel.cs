@@ -14,15 +14,11 @@ namespace TransportsMVVM.Model
     {
         public Transport(string key, List<string> value)
         {
-            Key = key;
-            Value = value;
+            BusStop = key;
+            BusLine = value;
         }
 
-        public String TableTitle { get; set; }
-        public String BusStation { get; set; }
-        public String Line { get; set; }
-        public string Key { get; set; }
-        public List<string> Value { get; set; }
+        public string BusStop { get; set; }
+        public List<string> BusLine { get; set; }
     }
-
 }
