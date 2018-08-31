@@ -7,13 +7,16 @@
              mc:Ignorable="d" 
              d:DesignHeight="800" d:DesignWidth="1200">
 
+    <!--Permet l'affiche de la barre de scroll-->
     <ScrollViewer>
         <Grid>
+            <!--Définition de la Grid : Colonnes--> 
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="100" />
                 <ColumnDefinition Width="100" />
 
+            <!--Définition de la Grid : Lignes-->
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="100" />
@@ -22,17 +25,17 @@
             </Grid.RowDefinitions>
 
             <StackPanel HorizontalAlignment = "Center">
-                <TextBlock HorizontalAlignment = "Center" Text = "{Binding Path = PageTitle}" Margin = "0,50,0,0" Height="50" FontWeight="ExtraBold" />
+                <TextBlock Text = "{Binding Path = PageTitle}" Margin = "0,50,0,0" Height="50" FontWeight="ExtraBold" />
             </StackPanel>
 
 
-            <WrapPanel  Grid.Row="1" Background="LightSalmon" HorizontalAlignment = "Center">
-                <Label Content="Longitude : "/>
-                <TextBox Width = "150" TextAlignment = "Center" Text="{Binding Path=Longitude}" FontWeight="Bold" Height="20" Margin="0,0,0,2"/>
-                <Label VerticalAlignment = "Center" Content="   Latitude : "/>
-                <TextBox Width = "150" TextAlignment = "Center" Text="{Binding Path=Latitude}" FontWeight="Bold" Height="20" Margin="0,0,0,2"/>
-                <Label VerticalAlignment = "Center" Content="   Distance : "/>
-                <TextBox Width = "80" TextAlignment = "Center" Text="{Binding Path=Distance}" FontWeight="Bold" Height="20" Margin="0,0,0,2"/>
+            <WrapPanel  Width = "550" Grid.Row="1" Background="LightSalmon" HorizontalAlignment = "Center">
+                <Label Content="  Longitude : "/>
+                <TextBox Width = "100" TextAlignment = "Center" Text="{Binding Path=Longitude}" FontWeight="Bold" Height="20"/>
+                <Label VerticalAlignment = "Center" Content="     Latitude : "/>
+                <TextBox Width = "100" TextAlignment = "Center" Text="{Binding Path=Latitude}" FontWeight="Bold" Height="20"/>
+                <Label VerticalAlignment = "Center" Content="     Distance : "/>
+                <TextBox Width = "80" TextAlignment = "Center" Text="{Binding Path=Distance}" FontWeight="Bold" Height="20"/>
             </WrapPanel>
 
             <Button Grid.Column="1" Grid.Row="1" Background="LightCyan" BorderBrush="Salmon" BorderThickness="2">Valider</Button>
@@ -43,9 +46,9 @@
                 <ItemsControl ItemsSource = "{Binding Path = Transports}" >
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
-                            <StackPanel Orientation = "Horizontal">
+                            <ListBox Margin = "20 3 3 5">
 
-                                <TextBlock Grid.Row="2" Text = "{Binding Path = BusStop}" Width = "350" Margin = "20 3 3 5" />
+                                <TextBlock TextAlignment = "Center" Text = "{Binding Path = BusStop}" Width = "500"/>
 
                                 <!--<boucle sur la collection BusLine>-->
                                 <ItemsControl ItemsSource = "{Binding Path = BusLine}">
@@ -57,9 +60,10 @@
                                             </StackPanel>
                                         </DataTemplate>
                                     </ItemsControl.ItemTemplate>
+                                   
                                 </ItemsControl>
-
-                            </StackPanel>
+                                
+                            </ListBox>
                         </DataTemplate>
                     </ItemsControl.ItemTemplate>
                 </ItemsControl>
