@@ -5,60 +5,66 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:TransportsMVVM.Views"
              mc:Ignorable="d" 
-             d:DesignHeight="800" d:DesignWidth="800">
+             d:DesignHeight="800" d:DesignWidth="1200">
 
     <ScrollViewer>
-    <Grid>
-        <!--<Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto" />
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-        </Grid.RowDefinitions>-->
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="100" />
+                <ColumnDefinition Width="100" />
 
-        <StackPanel HorizontalAlignment = "Center">
-            <TextBlock Text = "{Binding Path = PageTitle}" Margin = "10,50,10,10" Height="50" />
-        </StackPanel>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="100" />
+                <RowDefinition Height="40" />
+                <RowDefinition Height="2*" />
+            </Grid.RowDefinitions>
 
-            <StackPanel HorizontalAlignment = "Center" Width="500" Margin="20,100,50,50">
-            <TextBlock HorizontalAlignment = "Center">
-                <Label Content="Longitude:"/>
-                <TextBox VerticalAlignment = "Center" HorizontalAlignment = "Center" Text="{Binding Path=Longitude}" FontWeight="Bold" Height="25"/>
-                <Label Content="Latitude:"/>
-                <TextBox VerticalAlignment = "Center" HorizontalAlignment = "Center" Text="{Binding Path=Latitude}" FontWeight="Bold" Height="25"/>
-                <Label Content="Distance:"/>
-                <TextBox VerticalAlignment = "Center" HorizontalAlignment = "Center" Text="{Binding Path=Distance}" FontWeight="Bold" Height="25"/>
-            </TextBlock>
-        </StackPanel>
+            <StackPanel HorizontalAlignment = "Center">
+                <TextBlock HorizontalAlignment = "Center" Text = "{Binding Path = PageTitle}" Margin = "0,50,0,0" Height="50" FontWeight="ExtraBold" />
+            </StackPanel>
 
-        <StackPanel VerticalAlignment = "Center" HorizontalAlignment = "Center" Margin="0,150,0,0">
 
-            <!--<boucle sur la collection observable>-->
-            <ItemsControl ItemsSource = "{Binding Path = Transports}" >
-                <ItemsControl.ItemTemplate>
-                    <DataTemplate>
-                        <StackPanel Orientation = "Horizontal">
-                            
-                            <TextBlock Text = "{Binding Path = BusStop}" Width = "350" Margin = "20 3 3 5" />
+            <WrapPanel  Grid.Row="1" Background="LightSalmon" HorizontalAlignment = "Center">
+                <Label Content="Longitude : "/>
+                <TextBox Width = "150" TextAlignment = "Center" Text="{Binding Path=Longitude}" FontWeight="Bold" Height="20" Margin="0,0,0,2"/>
+                <Label VerticalAlignment = "Center" Content="   Latitude : "/>
+                <TextBox Width = "150" TextAlignment = "Center" Text="{Binding Path=Latitude}" FontWeight="Bold" Height="20" Margin="0,0,0,2"/>
+                <Label VerticalAlignment = "Center" Content="   Distance : "/>
+                <TextBox Width = "80" TextAlignment = "Center" Text="{Binding Path=Distance}" FontWeight="Bold" Height="20" Margin="0,0,0,2"/>
+            </WrapPanel>
 
-                            <!--<boucle sur la collection BusLine>-->
-                            <ItemsControl ItemsSource = "{Binding Path = BusLine}">
-                                <ItemsControl.ItemTemplate>
-                                    <DataTemplate>
-                                        <StackPanel Orientation = "Horizontal">
-                                            <!--<le . récupère toute la collection>-->
-                                                <TextBox Text = "{Binding ., Mode = OneWay}" Width = "100" Margin = "20 2 3 5" HorizontalAlignment = "Center"/>
-                                        </StackPanel>
-                                    </DataTemplate>
-                                </ItemsControl.ItemTemplate>
-                            </ItemsControl>
+            <Button Grid.Column="1" Grid.Row="1" Background="LightCyan" BorderBrush="Salmon" BorderThickness="2">Valider</Button>
 
-                        </StackPanel>
-                    </DataTemplate>
-                </ItemsControl.ItemTemplate>
-            </ItemsControl>
+            <StackPanel Grid.Row="2" HorizontalAlignment = "Center" Margin = "0,50,0,0">
 
-        </StackPanel>
-    </Grid>
+                <!--<boucle sur la collection observable>-->
+                <ItemsControl ItemsSource = "{Binding Path = Transports}" >
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation = "Horizontal">
+
+                                <TextBlock Grid.Row="2" Text = "{Binding Path = BusStop}" Width = "350" Margin = "20 3 3 5" />
+
+                                <!--<boucle sur la collection BusLine>-->
+                                <ItemsControl ItemsSource = "{Binding Path = BusLine}">
+                                    <ItemsControl.ItemTemplate>
+                                        <DataTemplate>
+                                            <StackPanel Orientation = "Horizontal">
+                                                <!--<le . récupère toute la collection>-->
+                                                <TextBox Text = "{Binding ., Mode = OneWay}" TextAlignment = "Center" FontWeight="Bold" Width = "100" Margin = "20 2 3 5" HorizontalAlignment = "Center"/>
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </ItemsControl.ItemTemplate>
+                                </ItemsControl>
+
+                            </StackPanel>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+
+            </StackPanel>
+        </Grid>
     </ScrollViewer>
 </UserControl>

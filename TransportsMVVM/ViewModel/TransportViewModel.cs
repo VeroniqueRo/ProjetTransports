@@ -48,7 +48,7 @@ namespace TransportsMVVM.ViewModel
             }
         }
 
-        public String PageTitle
+        public string PageTitle
         {
             get
             {
@@ -125,7 +125,7 @@ namespace TransportsMVVM.ViewModel
         public void LoadTransports()
         {
 
-            
+
 
 
             DataBusStation liste = new DataBusStation(new Connexion());
@@ -155,6 +155,8 @@ namespace TransportsMVVM.ViewModel
             return listToReturn;
         }
 
+
+        
         public event PropertyChangedEventHandler PropertyChanged;
 
         private void RaisePropertyChanged(string property) // Méthode outil pour faire les changement dans la vue
